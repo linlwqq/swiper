@@ -18,23 +18,17 @@ export default class RubberBand extends Easing {
 
     public ACompute(x: number): number {
         x = Math.abs(x);
-        console.log('is B ' , this._isB);
-        console.log('x : ' + x);
-        return -0.2 * x * (x - 2)
+        return -0.2 * x * (x - 2);
     }
 
     public BCompute(x: number): number {
-        console.log('is B ' , this._isB);
-        if (!this._isB) {
-            console.log('enter B');
+        if (!this._isB) { 
             this._x = Math.abs(x);
-            this.coeff = this.ACompute(this._x) / (this._x * this._x)
+            this.coeff = this.ACompute(this._x) / (this._x * this._x);
             this._isB = true;
         }
 
-        console.log('xx : ' + x);
-
-        return this.coeff * x * x ;
+        return this.coeff * x * x * x;
     }
 
     public reset() {
